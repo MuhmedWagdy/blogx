@@ -17,6 +17,8 @@ class Post(models.Model):
 
     author = models.ForeignKey(User,on_delete=models.SET_NULL,null= True,blank=True,related_name='post_user')
 
+    image = models.ImageField(upload_to='posts')
+
 
 
 
