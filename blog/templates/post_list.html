@@ -1,6 +1,4 @@
 <h2>Blog</h2>
 {% for  post in posts %}
-
-   <a href=""><h4>{{post.title}} == >{{post.created_date}}</h4></a>
-
+  <h3><a href="/blog/{{post.id}}">{{post}}</a></h3> 
 {% endfor %}
