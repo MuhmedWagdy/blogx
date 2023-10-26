@@ -3,7 +3,7 @@ from django.utils import timezone
 from taggit.managers import TaggableManager
 from django.contrib.auth.models import User      
 # Create your models here.
-
+from simple_history.models import HistoricalRecords
 
 
 
@@ -16,6 +16,7 @@ class Post(models.Model):
     tags = TaggableManager()
     author = models.ForeignKey(User,on_delete=models.SET_NULL,null= True,blank=True,related_name='post_user')
     image = models.ImageField(upload_to='posts')
+    history = HistoricalRecords()
 
 
 

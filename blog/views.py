@@ -11,6 +11,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 def post_list(request):
+    
     data = Post.objects.all()
     return render(request,'post_list.html',{'post':data})
 
@@ -20,6 +21,7 @@ class PostList(ListView):
 # ===============================================================================================================================================================
 
 def post_detail(request,post_id):
+      
       data = Post.objects.get(id=post_id)
       post_comment = Comment.objects.filter(post=data)
       if request.method == "POST":
@@ -40,14 +42,15 @@ class PostDetail(DetailView):
 
 #===================================================================================================================================================================
 
-def add_comment(request):
-     pass
+def view_history(request, id):
+    my_model_instance = Post.objects.get(id=id)
+    history = my_model_instance.history.all()
+    return render(request, 'blog/history.html', {'history': history,'my_model_instance':my_model_instance})
 
 
 
 
-
-
+# ===================================================================================================================================================================
 def post_new(request):
     if request.method == 'POST':         
           form = PostForm(request.POST,request.FILES)

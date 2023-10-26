@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>History</title>
+</head>
+<body>
+    <h1>History</h1>
+    <ul>
+        {% for record in history %}
+            <li>
+                <strong>Timestamp:</strong> {{ record.my_model_instance }}<br>
+                <strong>Changes:</strong> {{ record.diff }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+Configure URLs and create a view: 
