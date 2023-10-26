@@ -28,7 +28,7 @@ urlpatterns = [
     path('blog/', PostList.as_view()),
     # path('blog/new', post_new),
     path('blog/new',PostCreate.as_view()),
-    # path('blog/<int:post_id>', post_detail),
+    path('blog/<int:post_id>', post_detail),
     path('blog/<int:pk>', PostDetail.as_view()),
     # path('blog/<int:post_id>/edit', edit_post),
 

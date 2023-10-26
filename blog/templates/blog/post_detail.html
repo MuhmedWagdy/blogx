@@ -8,3 +8,32 @@
    <p>{{post.author}}</p>
    <hr/>
    <img src="{{post.image.url}}"  alt="">
+
+   <hr/>
+
+   <h3>Comment</h3>
+
+   <ul>
+      {% for comment in post_comment %}
+      <li>
+        <h5>{{comment.user}}-- {{comment.comment}} -- {{comment.created_at}}</h5> 
+      </li>
+
+      {% endfor %}
+
+
+   </ul>
+   <hr/>
+
+   <h3>Add New Comment </h3>
+
+   <form method="post">
+      {% csrf_token %}
+
+      {{form}}
+
+      <input type="submit" value="add New Comment">
+
+
+
+   </form>
